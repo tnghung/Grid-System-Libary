@@ -1,2 +1,2 @@
-# grid-system-libary
-Grid library that simulates bootstrap
+# Grid-System-Libary
+=> Grid library that simulates bootstrap
