@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/grid.css">
+    <title>Grid System</title>
+    <style>
+        .container{
+            text-align: center;
+        }
+
+        .course-item{
+            background-color: orange;
+            height: 260px;
+        }
+
+        h1{
+            color: #fff;
+            line-height: 260px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid wide container">
+        <!-- Tìm width của số col cần dùng trên 1 hàng = 12 / số col cần vẽ -->
+        <!-- Ở đây vẽ 4 cột trên 1 hàng nên dùng l-3 -->
+        <div class="row no-gutters">
+            <div class="col l-3 m-3">
+                <div class="course-item">
+                    <h1>Course 1</h1>
+                </div>
+            </div>
+            <div class="col l-3 m-3 ">
+                <div class="course-item">
+                    <h1>Course 2</h1>
+                </div>
+            </div>
+            <div class="col l-3 m-3">
+                <div class="course-item">
+                    <h1>Course 3</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
