@@ -1,594 +1,689 @@
-.grid {
-    width: 100%;
-    display: block;
-    padding: 0;
+
+/*  SECTIONS  ============================================================================= */
+
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
 }
 
-.grid.wide {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+/*  GROUPING  ============================================================================= */
 
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -4px;
-    margin-right: -4px;
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
 }
 
-/* Dùng cho layout mà ko có gutters */
-.row.no-gutters {
-    margin-left: 0;
-    margin-right: 0;
+.row:before,
+.row:after {
+    content:"";
+    display:table;
 }
+.row:after {
+    clear:both;
+}
+
+/*  GRID COLUMN SETUP   ==================================================================== */
 
 .col {
-    padding-left: 4px;
-    padding-right: 4px;
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
 }
 
-/* Dùng cho layout mà ko có gutters */
-.row.no-gutters .col {
-    padding-left: 0;
-    padding-right: 0;
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.col { 
+		/*margin: 1% 0 1% 0%;*/
+        margin: 0;
+	}
 }
 
-.c-0 {
-    display: none;
+
+/*  GRID OF TWO   ============================================================================= */
+
+
+.span-2-of-2 {
+	width: 100%;
 }
 
-.c-1 {
-    flex: 0 0 8.33333%;
-    max-width: 8.33333%;
+.span-1-of-2 {
+	width: 49.2%;
 }
 
-.c-2 {
-    flex: 0 0 16.66667%;
-    max-width: 16.66667%;
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-2-of-2 {
+		width: 100%; 
+	}
+	.span-1-of-2 {
+		width: 100%; 
+	}
 }
 
-.c-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+
+/*  GRID OF THREE   ============================================================================= */
+
+	
+.span-3-of-3 {
+	width: 100%; 
 }
 
-.c-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
+.span-2-of-3 {
+	width: 66.13%; 
 }
 
-.c-5 {
-    flex: 0 0 41.66667%;
-    max-width: 41.66667%;
+.span-1-of-3 {
+	width: 32.26%; 
 }
 
-.c-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-3-of-3 {
+		width: 100%; 
+	}
+	.span-2-of-3 {
+		width: 100%; 
+	}
+	.span-1-of-3 {
+		width: 100%;
+	}
 }
 
-.c-7 {
-    flex: 0 0 58.33333%;
-    max-width: 58.33333%;
+/*  GRID OF FOUR   ============================================================================= */
+
+	
+.span-4-of-4 {
+	width: 100%; 
 }
 
-.c-8 {
-    flex: 0 0 66.66667%;
-    max-width: 66.66667%;
+.span-3-of-4 {
+	width: 74.6%; 
 }
 
-.c-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
+.span-2-of-4 {
+	width: 49.2%; 
 }
 
-.c-10 {
-    flex: 0 0 83.33333%;
-    max-width: 83.33333%;
+.span-1-of-4 {
+	width: 23.8%; 
 }
 
-.c-11 {
-    flex: 0 0 91.66667%;
-    max-width: 91.66667%;
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-4-of-4 {
+		width: 100%; 
+	}
+	.span-3-of-4 {
+		width: 100%; 
+	}
+	.span-2-of-4 {
+		width: 100%; 
+	}
+	.span-1-of-4 {
+		width: 100%; 
+	}
 }
 
-.c-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
+
+/*  GRID OF FIVE   ============================================================================= */
+
+	
+.span-5-of-5 {
+	width: 100%;
 }
 
-/* c-o = column offset (vị trí column) */
-.c-o-1 {
-    margin-left: 8.33333%;
+.span-4-of-5 {
+  	width: 79.68%; 
 }
 
-.c-o-2 {
-    margin-left: 16.66667%;
+.span-3-of-5 {
+  	width: 59.36%; 
 }
 
-.c-o-3 {
-    margin-left: 25%;
+.span-2-of-5 {
+  	width: 39.04%;
 }
 
-.c-o-4 {
-    margin-left: 33.33333%;
+.span-1-of-5 {
+  	width: 18.72%;
 }
 
-.c-o-5 {
-    margin-left: 41.66667%;
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-5-of-5 {
+		width: 100%; 
+	}
+	.span-4-of-5 {
+		width: 100%; 
+	}
+	.span-3-of-5 {
+		width: 100%; 
+	}
+	.span-2-of-5 {
+		width: 100%; 
+	}
+	.span-1-of-5 {
+		width: 100%; 
+	}
 }
 
-.c-o-6 {
-    margin-left: 50%;
+
+/*  GRID OF SIX   ============================================================================= */
+
+
+.span-6-of-6 {
+	width: 100%;
 }
 
-.c-o-7 {
-    margin-left: 58.33333%;
+.span-5-of-6 {
+  	width: 83.06%;
 }
 
-.c-o-8 {
-    margin-left: 66.66667%;
+.span-4-of-6 {
+  	width: 66.13%;
 }
 
-.c-o-9 {
-    margin-left: 75%;
+.span-3-of-6 {
+  	width: 49.2%;
 }
 
-.c-o-10 {
-    margin-left: 83.33333%;
+.span-2-of-6 {
+  	width: 32.26%;
 }
 
-.c-o-11 {
-    margin-left: 91.66667%;
+.span-1-of-6 {
+  	width: 15.33%;
 }
 
-/* >= Tablet */
-@media (min-width: 740px) {
-    .row {
-        margin-left: -8px;
-        margin-right: -8px;
-    }
 
-    .col {
-        padding-left: 8px;
-        padding-right: 8px;
-    }
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
-    .m-0 {
-        display: none;
-    }
-
-    .m-1,
-    .m-2,
-    .m-3,
-    .m-4,
-    .m-5,
-    .m-6,
-    .m-7,
-    .m-8,
-    .m-9,
-    .m-10,
-    .m-11,
-    .m-12 {
-        display: block;
-    }
-
-    .m-1 {
-        flex: 0 0 8.33333%;
-        max-width: 8.33333%;
-    }
-
-    .m-2 {
-        flex: 0 0 16.66667%;
-        max-width: 16.66667%;
-    }
-
-    .m-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
-
-    .m-4 {
-        flex: 0 0 33.33333%;
-        max-width: 33.33333%;
-    }
-
-    .m-5 {
-        flex: 0 0 41.66667%;
-        max-width: 41.66667%;
-    }
-
-    .m-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-
-    .m-7 {
-        flex: 0 0 58.33333%;
-        max-width: 58.33333%;
-    }
-
-    .m-8 {
-        flex: 0 0 66.66667%;
-        max-width: 66.66667%;
-    }
-
-    .m-9 {
-        flex: 0 0 75%;
-        max-width: 75%;
-    }
-
-    .m-10 {
-        flex: 0 0 83.33333%;
-        max-width: 83.33333%;
-    }
-
-    .m-11 {
-        flex: 0 0 91.66667%;
-        max-width: 91.66667%;
-    }
-
-    .m-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    .m-o-1 {
-        margin-left: 8.33333%;
-    }
-
-    .m-o-2 {
-        margin-left: 16.66667%;
-    }
-
-    .m-o-3 {
-        margin-left: 25%;
-    }
-
-    .m-o-4 {
-        margin-left: 33.33333%;
-    }
-
-    .m-o-5 {
-        margin-left: 41.66667%;
-    }
-
-    .m-o-6 {
-        margin-left: 50%;
-    }
-
-    .m-o-7 {
-        margin-left: 58.33333%;
-    }
-
-    .m-o-8 {
-        margin-left: 66.66667%;
-    }
-
-    .m-o-9 {
-        margin-left: 75%;
-    }
-
-    .m-o-10 {
-        margin-left: 83.33333%;
-    }
-
-    .m-o-11 {
-        margin-left: 91.66667%;
-    }
+@media only screen and (max-width: 480px) {
+	.span-6-of-6 {
+		width: 100%; 
+	}
+	.span-5-of-6 {
+		width: 100%; 
+	}
+	.span-4-of-6 {
+		width: 100%; 
+	}
+	.span-3-of-6 {
+		width: 100%; 
+	}
+	.span-2-of-6 {
+		width: 100%; 
+	}
+	.span-1-of-6 {
+		width: 100%; 
+	}
 }
 
-/* PC medium resolution > */
-@media (min-width: 1113px) {
-    .row {
-        margin-left: -12px;
-        margin-right: -12px;
-    }
 
-    .row.sm-gutter {
-        margin-left: -5px;
-        margin-right: -5px;
-    }
 
-    .col {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
+/*  GRID OF SEVEN   ============================================================================= */
 
-    .row.sm-gutter .col {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
 
-    .l-0 {
-        display: none;
-    }
-
-    .l-1,
-    .l-2,
-    .l-2-4,
-    .l-3,
-    .l-4,
-    .l-5,
-    .l-6,
-    .l-7,
-    .l-8,
-    .l-9,
-    .l-10,
-    .l-11,
-    .l-12 {
-        display: block;
-    }
-
-    .l-1 {
-        flex: 0 0 8.33333%;
-        max-width: 8.33333%;
-    }
-
-    .l-2 {
-        flex: 0 0 16.66667%;
-        max-width: 16.66667%;
-    }
-
-    .l-2-4 {
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-
-    .l-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
-
-    .l-4 {
-        flex: 0 0 33.33333%;
-        max-width: 33.33333%;
-    }
-
-    .l-5 {
-        flex: 0 0 41.66667%;
-        max-width: 41.66667%;
-    }
-
-    .l-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-
-    .l-7 {
-        flex: 0 0 58.33333%;
-        max-width: 58.33333%;
-    }
-
-    .l-8 {
-        flex: 0 0 66.66667%;
-        max-width: 66.66667%;
-    }
-
-    .l-9 {
-        flex: 0 0 75%;
-        max-width: 75%;
-    }
-
-    .l-10 {
-        flex: 0 0 83.33333%;
-        max-width: 83.33333%;
-    }
-
-    .l-11 {
-        flex: 0 0 91.66667%;
-        max-width: 91.66667%;
-    }
-
-    .l-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    .l-o-1 {
-        margin-left: 8.33333%;
-    }
-
-    .l-o-2 {
-        margin-left: 16.66667%;
-    }
-
-    .l-o-3 {
-        margin-left: 25%;
-    }
-
-    .l-o-4 {
-        margin-left: 33.33333%;
-    }
-
-    .l-o-5 {
-        margin-left: 41.66667%;
-    }
-
-    .l-o-6 {
-        margin-left: 50%;
-    }
-
-    .l-o-7 {
-        margin-left: 58.33333%;
-    }
-
-    .l-o-8 {
-        margin-left: 66.66667%;
-    }
-
-    .l-o-9 {
-        margin-left: 75%;
-    }
-
-    .l-o-10 {
-        margin-left: 83.33333%;
-    }
-
-    .l-o-11 {
-        margin-left: 91.66667%;
-    }
+.span-7-of-7 {
+	width: 100%;
 }
 
-/* Tablet - PC low resolution */
-@media (min-width: 740px) and (max-width: 1023px) {
-    .wide {
-        width: 644px;
-    }
+.span-6-of-7 {
+	width: 85.48%;
 }
 
-/* > PC low resolution */
-@media (min-width: 1024px) and (max-width: 1239px) {
-    .wide {
-        width: 984px;
-    }
+.span-5-of-7 {
+  	width: 70.97%;
+}
 
-    .wide .row {
-        margin-left: -12px;
-        margin-right: -12px;
-    }
+.span-4-of-7 {
+  	width: 56.45%;
+}
 
-    .wide .row.sm-gutter {
-        margin-left: -5px;
-        margin-right: -5px;
-    }
+.span-3-of-7 {
+  	width: 41.94%;
+}
 
-    .wide .col {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
+.span-2-of-7 {
+  	width: 27.42%;
+}
 
-    .wide .row.sm-gutter .col {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
+.span-1-of-7 {
+  	width: 12.91%;
+}
 
-    .wide .l-0 {
-        display: none;
-    }
 
-    .wide .l-1,
-    .wide .l-2,
-    .wide .l-2-4,
-    .wide .l-3,
-    .wide .l-4,
-    .wide .l-5,
-    .wide .l-6,
-    .wide .l-7,
-    .wide .l-8,
-    .wide .l-9,
-    .wide .l-10,
-    .wide .l-11,
-    .wide .l-12 {
-        display: block;
-    }
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
-    .wide .l-1 {
-        flex: 0 0 8.33333%;
-        max-width: 8.33333%;
-    }
+@media only screen and (max-width: 480px) {
+	.span-7-of-7 {
+		width: 100%; 
+	}
+	.span-6-of-7 {
+		width: 100%; 
+	}
+	.span-5-of-7 {
+		width: 100%; 
+	}
+	.span-4-of-7 {
+		width: 100%; 
+	}
+	.span-3-of-7 {
+		width: 100%; 
+	}
+	.span-2-of-7 {
+		width: 100%; 
+	}
+	.span-1-of-7 {
+		width: 100%; 
+	}
+}
 
-    .wide .l-2 {
-        flex: 0 0 16.66667%;
-        max-width: 16.66667%;
-    }
 
-    .wide .l-2-4 {
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
+/*  GRID OF EIGHT   ============================================================================= */
 
-    .wide .l-3 {
-        flex: 0 0 25%;
-        max-width: 25%;
-    }
+	
+.span-8-of-8 {
+	width: 100%;
+}
 
-    .wide .l-4 {
-        flex: 0 0 33.33333%;
-        max-width: 33.33333%;
-    }
+.span-7-of-8 {
+	width: 87.3%; 
+}
 
-    .wide .l-5 {
-        flex: 0 0 41.66667%;
-        max-width: 41.66667%;
-    }
+.span-6-of-8 {
+	width: 74.6%; 
+}
 
-    .wide .l-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
+.span-5-of-8 {
+	width: 61.9%; 
+}
 
-    .wide .l-7 {
-        flex: 0 0 58.33333%;
-        max-width: 58.33333%;
-    }
+.span-4-of-8 {
+	width: 49.2%; 
+}
 
-    .wide .l-8 {
-        flex: 0 0 66.66667%;
-        max-width: 66.66667%;
-    }
+.span-3-of-8 {
+	width: 36.5%;
+}
 
-    .wide .l-9 {
-        flex: 0 0 75%;
-        max-width: 75%;
-    }
+.span-2-of-8 {
+	width: 23.8%; 
+}
 
-    .wide .l-10 {
-        flex: 0 0 83.33333%;
-        max-width: 83.33333%;
-    }
+.span-1-of-8 {
+	width: 11.1%; 
+}
 
-    .wide .l-11 {
-        flex: 0 0 91.66667%;
-        max-width: 91.66667%;
-    }
 
-    .wide .l-12 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 
-    .wide .l-o-1 {
-        margin-left: 8.33333%;
-    }
+@media only screen and (max-width: 480px) {
+	.span-8-of-8 {
+		width: 100%; 
+	}
+	.span-7-of-8 {
+		width: 100%; 
+	}
+	.span-6-of-8 {
+		width: 100%; 
+	}
+	.span-5-of-8 {
+		width: 100%; 
+	}
+	.span-4-of-8 {
+		width: 100%; 
+	}
+	.span-3-of-8 {
+		width: 100%; 
+	}
+	.span-2-of-8 {
+		width: 100%; 
+	}
+	.span-1-of-8 {
+		width: 100%; 
+	}
+}
 
-    .wide .l-o-2 {
-        margin-left: 16.66667%;
-    }
 
-    .wide .l-o-3 {
-        margin-left: 25%;
-    }
+/*  GRID OF NINE   ============================================================================= */
 
-    .wide .l-o-4 {
-        margin-left: 33.33333%;
-    }
 
-    .wide .l-o-5 {
-        margin-left: 41.66667%;
-    }
+.span-9-of-9 {
+	width: 100%;
+}
 
-    .wide .l-o-6 {
-        margin-left: 50%;
-    }
+.span-8-of-9 {
+	width: 88.71%;
+}
 
-    .wide .l-o-7 {
-        margin-left: 58.33333%;
-    }
+.span-7-of-9 {
+	width: 77.42%; 
+}
 
-    .wide .l-o-8 {
-        margin-left: 66.66667%;
-    }
+.span-6-of-9 {
+	width: 66.13%; 
+}
 
-    .wide .l-o-9 {
-        margin-left: 75%;
-    }
+.span-5-of-9 {
+	width: 54.84%; 
+}
 
-    .wide .l-o-10 {
-        margin-left: 83.33333%;
-    }
+.span-4-of-9 {
+	width: 43.55%; 
+}
 
-    .wide .l-o-11 {
-        margin-left: 91.66667%;
-    }
+.span-3-of-9 {
+	width: 32.26%;
+}
+
+.span-2-of-9 {
+	width: 20.97%; 
+}
+
+.span-1-of-9 {
+	width: 9.68%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-9-of-9 {
+		width: 100%; 
+	}
+	.span-8-of-9 {
+		width: 100%; 
+	}
+	.span-7-of-9 {
+		width: 100%; 
+	}
+	.span-6-of-9 {
+		width: 100%; 
+	}
+	.span-5-of-9 {
+		width: 100%; 
+	}
+	.span-4-of-9 {
+		width: 100%; 
+	}
+	.span-3-of-9 {
+		width: 100%; 
+	}
+	.span-2-of-9 {
+		width: 100%; 
+	}
+	.span-1-of-9 {
+		width: 100%; 
+	}
+}
+
+
+/*  GRID OF TEN   ============================================================================= */
+
+
+.span-10-of-10 {
+	width: 100%;
+}
+
+.span-9-of-10 {
+	width: 89.84%;
+}
+
+.span-8-of-10 {
+	width: 79.68%;
+}
+
+.span-7-of-10 {
+	width: 69.52%; 
+}
+
+.span-6-of-10 {
+	width: 59.36%; 
+}
+
+.span-5-of-10 {
+	width: 49.2%; 
+}
+
+.span-4-of-10 {
+	width: 39.04%; 
+}
+
+.span-3-of-10 {
+	width: 28.88%;
+}
+
+.span-2-of-10 {
+	width: 18.72%; 
+}
+
+.span-1-of-10 {
+	width: 8.56%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-10-of-10 {
+		width: 100%; 
+	}
+	.span-9-of-10 {
+		width: 100%; 
+	}
+	.span-8-of-10 {
+		width: 100%; 
+	}
+	.span-7-of-10 {
+		width: 100%; 
+	}
+	.span-6-of-10 {
+		width: 100%; 
+	}
+	.span-5-of-10 {
+		width: 100%; 
+	}
+	.span-4-of-10 {
+		width: 100%; 
+	}
+	.span-3-of-10 {
+		width: 100%; 
+	}
+	.span-2-of-10 {
+		width: 100%; 
+	}
+	.span-1-of-10 {
+		width: 100%; 
+	}
+}
+
+
+/*  GRID OF ELEVEN   ============================================================================= */
+
+.span-11-of-11 {
+	width: 100%;
+}
+
+.span-10-of-11 {
+	width: 90.76%;
+}
+
+.span-9-of-11 {
+	width: 81.52%;
+}
+
+.span-8-of-11 {
+	width: 72.29%;
+}
+
+.span-7-of-11 {
+	width: 63.05%; 
+}
+
+.span-6-of-11 {
+	width: 53.81%; 
+}
+
+.span-5-of-11 {
+	width: 44.58%; 
+}
+
+.span-4-of-11 {
+	width: 35.34%; 
+}
+
+.span-3-of-11 {
+	width: 26.1%;
+}
+
+.span-2-of-11 {
+	width: 16.87%; 
+}
+
+.span-1-of-11 {
+	width: 7.63%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-11-of-11 {
+		width: 100%; 
+	}
+	.span-10-of-11 {
+		width: 100%; 
+	}
+	.span-9-of-11 {
+		width: 100%; 
+	}
+	.span-8-of-11 {
+		width: 100%; 
+	}
+	.span-7-of-11 {
+		width: 100%; 
+	}
+	.span-6-of-11 {
+		width: 100%; 
+	}
+	.span-5-of-11 {
+		width: 100%; 
+	}
+	.span-4-of-11 {
+		width: 100%; 
+	}
+	.span-3-of-11 {
+		width: 100%; 
+	}
+	.span-2-of-11 {
+		width: 100%; 
+	}
+	.span-1-of-11 {
+		width: 100%; 
+	}
+}
+
+
+/*  GRID OF TWELVE   ============================================================================= */
+
+.span-12-of-12 {
+	width: 100%;
+}
+
+.span-11-of-12 {
+	width: 91.53%;
+}
+
+.span-10-of-12 {
+	width: 83.06%;
+}
+
+.span-9-of-12 {
+	width: 74.6%;
+}
+
+.span-8-of-12 {
+	width: 66.13%;
+}
+
+.span-7-of-12 {
+	width: 57.66%; 
+}
+
+.span-6-of-12 {
+	width: 49.2%; 
+}
+
+.span-5-of-12 {
+	width: 40.73%; 
+}
+
+.span-4-of-12 {
+	width: 32.26%; 
+}
+
+.span-3-of-12 {
+	width: 23.8%;
+}
+
+.span-2-of-12 {
+	width: 15.33%; 
+}
+
+.span-1-of-12 {
+	width: 6.86%; 
+}
+
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-12-of-12 {
+		width: 100%; 
+	}
+	.span-11-of-12 {
+		width: 100%; 
+	}
+	.span-10-of-12 {
+		width: 100%; 
+	}
+	.span-9-of-12 {
+		width: 100%; 
+	}
+	.span-8-of-12 {
+		width: 100%; 
+	}
+	.span-7-of-12 {
+		width: 100%; 
+	}
+	.span-6-of-12 {
+		width: 100%; 
+	}
+	.span-5-of-12 {
+		width: 100%; 
+	}
+	.span-4-of-12 {
+		width: 100%; 
+	}
+	.span-3-of-12 {
+		width: 100%; 
+	}
+	.span-2-of-12 {
+		width: 100%; 
+	}
+	.span-1-of-12 {
+		width: 100%; 
+	}
 }
